@@ -1,0 +1,37 @@
+export type Food = {
+    ATT_FILE_NO_MAIN: string;
+    ATT_FILE_NO_MK: string;
+    HASH_TAG: string;
+    INFO_CAR: string;
+    INFO_ENG: string;
+    INFO_FAT: string;
+    INFO_NA: string;
+    INFO_PRO: string;
+    INFO_WGT: string;
+    MANUAL01: string;
+    MANUAL02: string;
+    MANUAL03: string;
+    MANUAL04: string;
+    MANUAL05: string;
+    MANUAL06: string;
+    MANUAL07: string;
+    MANUAL08: string;
+    MANUAL09: string;
+    MANUAL10: string;
+    MANUAL11: string;
+    MANUAL12: string;
+    MANUAL13: string;
+    MANUAL14: string;
+    MANUAL15: string;
+    MANUAL16: string;
+    MANUAL17: string;
+    MANUAL18: string;
+    MANUAL19: string;
+    MANUAL20: string;
+    RCP_NA_TIP: string;
+    RCP_NM: string;
+    RCP_PARTS_DTLS: string;
+    RCP_PAT2: string;
+    RCP_SEQ: string;
+    RCP_WAY2: string;
+  }

@@ -10,9 +10,9 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const query = await getDocs(collection(db, "Food"));
-      query.forEach((doc) => {
-        console.log(doc.data());
-      });
+      // query.forEach((doc) => {
+      //   console.log(doc.data());
+      // });
     };
   
     fetchData();
@@ -26,9 +26,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h2>안녕</h2>
-      </main>
+      <h2>안녕</h2>
     </>
   )
 }
