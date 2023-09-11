@@ -61,3 +61,9 @@ button{
     clip: rect(0,0,0,0);
     clip-path: inset(50%);
 }
+#__next{
+    height: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+}
