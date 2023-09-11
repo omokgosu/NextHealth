@@ -10,15 +10,19 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video , input{
 	margin: 0;
 	padding: 0;
 	border: 0;
     box-sizing: border-box;
 }
+html{
+    font-size: 18px;
+}
 body{
     color: #fff;
     font-family: globalFont;
+    font-size: 18px;
 }
 ol, ul {
 	list-style: none;
@@ -49,6 +53,10 @@ button{
     background: none;
     padding: 0;
     cursor: pointer;
+}
+input {
+    outline: none;
+    border: none;
 }
 .hidden{
     position: absolute;
