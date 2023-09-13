@@ -5,3 +5,8 @@ export const FoodState = atom<Food[]>({
     key: 'FoodState',
     default: []
 })
+
+export const searchInputState = atom<string>({
+    key: 'searchInputState',
+    default: ''
+})

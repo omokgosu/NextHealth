@@ -8,9 +8,11 @@ import { Food } from '@/types/FoodType';
 
 import { db } from '../services/firebase';
 import { collection , getDocs } from 'firebase/firestore';
+import FoodList from '../constants/FoodList';
+import { useRouter } from 'next/router';
 
-import FoodList from '@/pages/FoodList/FoodList'
 export default function Home() {
+  const router = useRouter();
 
   const [foodData , setFoodData] = useRecoilState(FoodState);
 
@@ -44,9 +46,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <FoodList />
-      </main>
+      {router.pathname === '/' && <FoodList />}
     </>
   )
 }

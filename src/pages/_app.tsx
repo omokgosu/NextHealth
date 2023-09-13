@@ -13,7 +13,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <RecoilRoot>
       <Header />
       <Search />
-      <Component {...pageProps} />
+      <main>
+        <Component {...pageProps} />
+      </main>
     </RecoilRoot>
   )
 }
