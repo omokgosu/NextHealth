@@ -1,12 +1,17 @@
 import { atom } from 'recoil';
-import { Food } from '@/types/FoodType';
+import { Food , searchInfo } from '@/types/FoodType';
 
 export const FoodState = atom<Food[]>({
     key: 'FoodState',
     default: []
 })
 
-export const searchInputState = atom<string>({
+export const searchInputState = atom<searchInfo>({
     key: 'searchInputState',
-    default: ''
+    default: {
+        name: '',
+        car: '',
+        pro: '',
+        fat: ''
+    }
 })

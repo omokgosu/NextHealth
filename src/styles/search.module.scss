@@ -1,0 +1,81 @@
+.search{
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px 50px;
+    background-color: #fff;
+
+    .searchTitle{
+        font-size: var(--font-size-24);
+        color: var(--dark_44);
+        margin: 20px 0;
+    }
+    .searchNut{
+        display: flex;
+        gap: 6px;
+
+        li{
+            display: flex;
+            border-radius: 5px;
+
+            label{
+                padding: 2px 4px;
+                background-color: var(--purple);
+                color: var(--white_ff);
+                font-size: var(--font-size-16);
+                box-sizing: border-box;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+            input{
+                border: solid 1px var(--gray_de);
+                width: 30px;
+                height: 30px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                padding-left: 5px;
+            }
+            input[type="number"]::-webkit-outer-spin-button,
+            input[type="number"]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }        
+        }
+    }
+    .searchArea{
+        position: relative;
+        height: 50px;
+        margin-top: 20px;
+
+        .serachInput{
+            width: 100%;
+            background-color: var(--gray_ee);
+            padding: 0 50px 0 10px;
+            height: 100%;
+            border-radius: 5px;
+            color: var(--gray_main);
+            font-size: var(--font-size-18);
+            font-weight: var(--font-weight-bold);
+
+            &::placeholder{
+                color: var(--gray_main);
+                font-size: 18px;
+                font-weight: var(--font-weight-normal);
+            }
+        }
+        .searchBtn{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            background: var(--purple) url(../../public/svgs/search/Magnifier.svg) no-repeat center center;
+        }
+    }
+}

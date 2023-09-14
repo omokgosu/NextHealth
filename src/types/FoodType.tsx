@@ -55,3 +55,10 @@ export type Food = {
     RCP_SEQ: string;
     RCP_WAY2: string;
   }
+
+  export type searchInfo = {
+    name: string,
+    car: string | undefined,
+    pro: string | undefined,
+    fat: string | undefined
+  }
