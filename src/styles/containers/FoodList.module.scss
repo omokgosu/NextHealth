@@ -1,11 +1,12 @@
 .FoodSection{
-    padding-top: 235px;
+    padding-top: 285px;
     .FoodList{
         display: flex;
         flex-direction: column;
         gap: 30px;
     
         .FoodItem{
+            color: var(--dark_00);
             background-color: var(--whte_ff);
             border-radius: 5px;
             box-shadow: 15px 15px 30px 0 rgba(211,209,216,.25);
@@ -42,6 +43,15 @@
                     }
                 }
             }
+        }
+        .NoFoodItem{
+            padding: 20px;
+            font-size: var(--font-size-24);
+            font-weight: var(--font-weight-bold);
+            color: var(--purple);
+            text-align: center;
+            border: solid 2px var(--purple);
+            border-radius: 5px;
         }
     }
 }

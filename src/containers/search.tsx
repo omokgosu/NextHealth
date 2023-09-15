@@ -1,6 +1,6 @@
 'use client'
 import React, {useRef} from 'react'
-import styles from '@/styles/search.module.scss'
+import styles from '@/styles/containers/search.module.scss'
 import { searchInputState } from '@/recoil/atoms'
 import { useRecoilState } from 'recoil'
 import { searchInfo } from '@/types/FoodType'
@@ -15,11 +15,29 @@ export default function Search() {
   
   const searchBtnClick=():void=>{
     if(searchInputRef.current){
+        let car:string | undefined | number = carInputRef?.current?.value;
+        let pro:string | undefined | number = proInputRef?.current?.value;
+        let fat:string | undefined | number = fatInputRef?.current?.value;
+
+        if(isNaN(Number(car))){
+          return alert('정수를 입력해 주세요.')
+        }
+        if(isNaN(Number(pro))){
+          return alert('정수를 입력해 주세요.')
+        }
+        if(isNaN(Number(fat))){
+          return alert('정수를 입력해 주세요.')
+        }
+
+        if(car === '') car = '0';
+        if(pro === '') pro = '0';
+        if(fat === '') fat = '0';
+
       setSearchInput({
         name: searchInputRef.current.value,
-        car: carInputRef?.current?.value,
-        pro: proInputRef?.current?.value,
-        fat: fatInputRef?.current?.value
+        car:  car,
+        pro: pro,
+        fat: fat
       });
     }
   }
@@ -39,7 +57,8 @@ export default function Search() {
           <input 
             ref={carInputRef}
             name="CAR" 
-            type='number'
+            type='text'
+            maxLength={2}
           />
         </li>
         <li>
@@ -47,7 +66,8 @@ export default function Search() {
           <input 
             ref={proInputRef}
             name="PRO" 
-            type='number'
+            type='text'
+            maxLength={2}
           />
         </li>
         <li>
@@ -55,7 +75,8 @@ export default function Search() {
           <input 
             ref={fatInputRef}
             name="FAT" 
-            type='number'
+            type='text'
+            maxLength={2}
           />
         </li>
       </ul>

@@ -1,0 +1,34 @@
+.FoodItem{
+    padding-top: 80px;
+
+    .FoodMainImg{
+        width: 50%;
+        margin: 0 auto;
+
+        img{
+            width: 100%;
+            border-radius: 5px;
+        }
+    }
+    .FoodName{
+        font-size: var(--font-size-24);
+        font-weight: var(--font-weight-bold);
+        color: var(--dark_00);
+    }
+    .FoodInfo{
+        display: flex;
+        gap: 6px;
+
+        li{
+            border-radius: 5px;
+            padding: 6px 8px;
+            font-size: var(--font-size-16);
+            color: var(--gray_sub);
+            background-color: var(--gray_f6);
+        }
+    }
+    .FoodMaterial{
+        font-size: var(--font-size-14);
+        color: var(--gray_sub);
+    }
+}

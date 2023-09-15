@@ -10,8 +10,8 @@ import { Food } from '@/types/FoodType';
 import { db } from '../services/firebase';
 import { collection , getDocs } from 'firebase/firestore';
 
-import FoodList from '../constants/FoodList';
-import Search from '@/constants/search'
+import FoodList from '../containers/FoodList';
+import Search from '@/containers/search'
 
 export default function Home() {
   const router = useRouter();
