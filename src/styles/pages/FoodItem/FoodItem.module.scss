@@ -1,34 +1,90 @@
 .FoodItem{
     padding-top: 80px;
+    padding-bottom: 40px;
 
-    .FoodMainImg{
-        width: 50%;
-        margin: 0 auto;
-
-        img{
-            width: 100%;
-            border-radius: 5px;
-        }
-    }
-    .FoodName{
-        font-size: var(--font-size-24);
+    .prevBtn{
+        display: inline-block;
+        font-size: var(--font-size-18);
         font-weight: var(--font-weight-bold);
-        color: var(--dark_00);
+        color: var(--purple);
+        border: solid 2px var(--purple);
+        border-radius: 5px;
+        padding: 4px 8px;
     }
-    .FoodInfo{
-        display: flex;
-        gap: 6px;
-
-        li{
-            border-radius: 5px;
-            padding: 6px 8px;
-            font-size: var(--font-size-16);
-            color: var(--gray_sub);
-            background-color: var(--gray_f6);
+    .FoodItemInfo{
+        padding: 0 20px;
+        .FoodMainImg{
+            width: 50%;
+            margin: 0 auto;
+    
+            img{
+                width: 100%;
+                border-radius: 5px;
+            }
         }
-    }
-    .FoodMaterial{
-        font-size: var(--font-size-14);
-        color: var(--gray_sub);
+        .FoodName{
+            font-size: var(--font-size-24);
+            font-weight: var(--font-weight-bold);
+            color: var(--dark_00);
+            margin: 20px 0 10px 0;
+        }
+        .FoodInfo{
+            display: flex;
+            gap: 6px;
+    
+            li{
+                border-radius: 5px;
+                padding: 6px 8px;
+                font-size: var(--font-size-16);
+                color: var(--gray_sub);
+                background-color: var(--gray_f6);
+            }
+        }
+        .FoodMaterial{
+            font-size: var(--font-size-14);
+            color: var(--gray_sub);
+            margin: 20px 0 15px 0;
+        }
+        .FoodTip{
+            color: var(--purple);
+            margin-bottom: 50px;
+
+            dt{
+                font-size: var(--font-size-18);
+                font-weight: var(--font-weight-bold);
+                padding-left: 32px;
+                background: url(../../../../public/svgs/pages/FoodItem/Star.svg) no-repeat left center;
+                margin-bottom: 10px;
+            }
+            dd{
+                font-size: var(--font-size-14);
+            }
+        }
+        .FoodRecipe{
+
+            dt{
+                font-size: var(--font-size-18);
+                font-weight: var(--font-weight-bold);
+                color: var(--dark_00);
+                margin-bottom: 15px;
+            }
+            .FoodRecipeSeq{
+                font-size: var(--font-size-18);
+                font-weight: var(--font-weight-bold);
+                color: var(--gray_sub);
+                
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                p{
+                    margin-bottom: 20px;
+                }
+                img{
+                    width: 100%;
+                    border-radius: 5px;
+                }
+            }
+        }
     }
 }

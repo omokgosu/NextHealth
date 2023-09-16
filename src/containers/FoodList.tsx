@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import React, { useState , useEffect , useCallback } from 'react';
-import { useRecoilValue } from 'recoil';
-import { FoodState , searchInputState } from '@/recoil/atoms';
+import { useRecoilValue , useRecoilState } from 'recoil';
+import { FoodState , searchInputState , FoodRecipe } from '@/recoil/atoms';
 import { Food , searchInfo} from '@/types/FoodType';
 
 import styles from '@/styles/containers/FoodList.module.scss'
@@ -59,6 +59,8 @@ export default function FoodList() {
         };
       }, [loadMoreData]);
 
+    const [ Foodrecipe , setFoodRecipe ] = useRecoilState<Food>(FoodRecipe);
+
     return (
         <section className={styles.FoodSection}>
             <h2 className="hidden">음식 리스트 목록</h2>
@@ -67,9 +69,8 @@ export default function FoodList() {
                     foodList && foodList.length !== 0
                     ?
                     foodList.slice(0,FoodListCount).map((el,i) => {
-                        console.log(el);
                         return(
-                            <li key={i} className={styles.FoodItem}>
+                            <li key={i} className={styles.FoodItem} onClick={()=>setFoodRecipe(el)}>
                                 <Link href={'/FoodItem'}>
                                     <div className={styles.FoodImgDiv}>
                                         <img src={el.ATT_FILE_NO_MAIN} alt={el.RCP_NM} />

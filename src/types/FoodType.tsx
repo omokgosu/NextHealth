@@ -54,6 +54,7 @@ export type Food = {
     RCP_PAT2: string;
     RCP_SEQ: string;
     RCP_WAY2: string;
+    [key: string]: string;
   }
 
   export type searchInfo = {
