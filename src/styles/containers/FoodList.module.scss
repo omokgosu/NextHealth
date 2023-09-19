@@ -1,11 +1,11 @@
 .FoodSection{
-    padding-top: 285px;
+    padding-top: 310px;
     .FoodList{
         display: flex;
         flex-direction: column;
         gap: 30px;
         background-color: var(--white_ff);
-        min-height: calc(100vh - 285px);
+        min-height: calc(100vh - 310px);
     
         .FoodItem{
             width: 70%; 
