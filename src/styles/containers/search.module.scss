@@ -15,6 +15,11 @@
         color: var(--dark_44);
         margin: 20px 0;
     }
+    .searchTip{
+        color: var(--red);
+        font-size: var(--font-size-14);
+        margin-bottom: 5px;
+    }
     .searchNut{
         display: flex;
         gap: 6px;

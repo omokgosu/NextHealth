@@ -8,7 +8,6 @@ export default function FoodItem() {
   
   const FoodData:Food = useRecoilValue(FoodRecipe);
   
-  console.log(FoodData);
   const renderManuals = (): React.ReactNode | null => {
     const manuals = [];
     for (let i = 1; i <= 20; i++) {
@@ -35,6 +34,7 @@ export default function FoodItem() {
 
   return (
     <section className={styles.FoodItem}>
+      <h2 className='hidden'>음식정보</h2>
       <Link href="/" className={styles.prevBtn}>
         이전
       </Link>

@@ -1,6 +1,6 @@
 .FoodItem{
-    padding-top: 80px;
-    padding-bottom: 40px;
+    padding: 80px 20px 40px;
+    background-color: var(--white_ff);
 
     .prevBtn{
         display: inline-block;
@@ -12,7 +12,7 @@
         padding: 4px 8px;
     }
     .FoodItemInfo{
-        padding: 0 20px;
+
         .FoodMainImg{
             width: 50%;
             margin: 0 auto;

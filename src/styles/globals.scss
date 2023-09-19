@@ -20,7 +20,8 @@ html{
     font-size: 18px;
 }
 body{
-    color: #fff;
+    color: var(--white_ff);
+    background-color: var(--dark_33);
     font-family: globalFont;
     font-size: 18px;
 }

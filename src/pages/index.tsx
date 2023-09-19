@@ -33,7 +33,7 @@ export default function Home() {
 
         setFoodData(foodList);
       } catch (error) {
-        console.error('Error fetching data from Firebase:', error);
+        alert('Error fetching data from Firebase:');
       }
     };
 

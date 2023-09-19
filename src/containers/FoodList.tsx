@@ -38,22 +38,23 @@ export default function FoodList() {
         }
     },[searchInfo])
 
-    const loadMoreData = useCallback(() => {
+    const loadMoreData = ()=> {
         setFoodListCount((prevCount) => prevCount + 20);
-      }, []);
+    };
 
-      useEffect(() => {
+    useEffect(() => {
         const InfinityScroll = () => {
-          if (
-            window.innerHeight + document.documentElement.scrollTop ===
-              document.documentElement.offsetHeight
-          ) {
+          const scrollY = window.scrollY; 
+          const windowHeight = window.innerHeight; 
+          const documentHeight = document.documentElement.scrollHeight; 
+      
+          if (scrollY + windowHeight >= documentHeight) {
             loadMoreData();
           }
         };
-    
+      
         window.addEventListener('scroll', InfinityScroll);
-    
+      
         return () => {
           window.removeEventListener('scroll', InfinityScroll);
         };

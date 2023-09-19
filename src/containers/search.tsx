@@ -51,6 +51,7 @@ export default function Search() {
   return (
     <section className={styles.search}>
       <h2 className={styles.searchTitle}>어떤 음식을 드시고 싶으세요?</h2>
+      <p className={styles.searchTip}>&#42; 영양성분의 g 수로도 검색할 수 있습니다.</p>
       <ul className={styles.searchNut}>
         <li>
           <label htmlFor='CAR'>탄수화물</label>
