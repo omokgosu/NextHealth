@@ -78,7 +78,8 @@ export default function FoodList() {
                                     </div>
                                     <dl className={styles.FoodInfo}>
                                         <dt>{el.RCP_NM}</dt>
-                                        <dd>
+                                        <dd className={styles.FoodMaterial}>{el.RCP_PARTS_DTLS}</dd>
+                                        <dd className={styles.FoodInfoList}>
                                             <ul>
                                                 <li>탄수화물 {el.INFO_CAR}g</li>
                                                 <li>단백질 {el.INFO_PRO}g</li>
