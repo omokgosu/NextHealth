@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <main>
         <Component {...pageProps} />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </RecoilRoot>
   )
 }
