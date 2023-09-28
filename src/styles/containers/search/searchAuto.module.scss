@@ -1,0 +1,20 @@
+.searchAuto{
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    background-color: var(--white_ff);
+    color: var(--dark_44);
+
+    li{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px;
+        cursor: pointer;
+        &:hover{
+            background-color: var(--gray_de);
+        }
+    };
+
+}

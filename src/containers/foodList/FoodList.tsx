@@ -6,7 +6,7 @@ import { useRecoilValue , useRecoilState } from 'recoil';
 import { FoodState , searchInputState , FoodRecipe } from '@/recoil/atoms';
 import { Food , searchInfo} from '@/types/FoodType';
 
-import styles from '@/styles/containers/FoodList.module.scss'
+import styles from '@/styles/containers/foodList/FoodList.module.scss'
 
 export default function FoodList() {
   
@@ -38,15 +38,15 @@ export default function FoodList() {
         }
     },[searchInfo])
 
-    const loadMoreData = ()=> {
+    const loadMoreData = ():void=> {
         setFoodListCount((prevCount) => prevCount + 20);
     };
 
     useEffect(() => {
-        const InfinityScroll = () => {
-          const scrollY = window.scrollY; 
-          const windowHeight = window.innerHeight; 
-          const documentHeight = document.documentElement.scrollHeight; 
+        const InfinityScroll = ():void => {
+          const scrollY:number = window.scrollY; 
+          const windowHeight:number = window.innerHeight; 
+          const documentHeight:number = document.documentElement.scrollHeight; 
       
           if (scrollY + windowHeight >= documentHeight) {
             loadMoreData();
@@ -58,7 +58,7 @@ export default function FoodList() {
         return () => {
           window.removeEventListener('scroll', InfinityScroll);
         };
-      }, [loadMoreData]);
+      }, []);
 
     const [ Foodrecipe , setFoodRecipe ] = useRecoilState<Food>(FoodRecipe);
 

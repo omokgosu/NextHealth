@@ -1,17 +1,20 @@
 'use client'
 import React, {useRef} from 'react'
-import styles from '@/styles/containers/search.module.scss'
+import styles from '@/styles/containers/search/search.module.scss'
 import { searchInputState } from '@/recoil/atoms'
 import { useRecoilState } from 'recoil'
 import { searchInfo } from '@/types/FoodType'
 
+import SearchAuto from './searchAuto'
+
 export default function Search() {
 
   const searchInputRef = useRef<HTMLInputElement>(null)
-  const [searchInput , setSearchInput] = useRecoilState<searchInfo>(searchInputState);
   const carInputRef = useRef<HTMLInputElement>(null);
   const proInputRef = useRef<HTMLInputElement>(null);
   const fatInputRef = useRef<HTMLInputElement>(null);
+
+  const [searchInput , setSearchInput] = useRecoilState<searchInfo>(searchInputState);
   
   const searchBtnClick=():void=>{
     if(searchInputRef.current){
@@ -96,6 +99,7 @@ export default function Search() {
           >
           <span className="hidden">음식검색버튼</span>
         </button>
+        <SearchAuto />
       </div>
     </section>
   )

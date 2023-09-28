@@ -3,7 +3,6 @@
     .FoodList{
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
         background-color: var(--white_ff);
         min-height: calc(100vh - 310px);
     
@@ -31,13 +30,12 @@
                         font-size: var(--font-size-16);
                         font-weight: var(--font-weight-bold);
                         color: var(--dark_00);
-                        margin-bottom: 15px;
                     }
                     .FoodMaterial{
                         display: block;
                         font-size: var(--font-size-12);
                         color: var(--gray_sub);
-                        margin: 20px 0 15px 0;
+                        margin: 5px 0 15px 0;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
