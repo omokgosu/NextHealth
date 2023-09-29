@@ -46,9 +46,9 @@ export default function FoodList() {
         const InfinityScroll = ():void => {
           const scrollY:number = window.scrollY; 
           const windowHeight:number = window.innerHeight; 
-          const documentHeight:number = document.documentElement.scrollHeight; 
+          const documentHeight:number = document.documentElement.scrollHeight;
       
-          if (scrollY + windowHeight >= documentHeight) {
+          if (scrollY + windowHeight >= documentHeight-1) {
             loadMoreData();
           }
         };

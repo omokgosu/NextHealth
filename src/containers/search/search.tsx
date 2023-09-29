@@ -1,5 +1,5 @@
 'use client'
-import React, {useRef} from 'react'
+import React, {useRef, useState} from 'react'
 import styles from '@/styles/containers/search/search.module.scss'
 import { searchInputState } from '@/recoil/atoms'
 import { useRecoilState } from 'recoil'
@@ -14,6 +14,7 @@ export default function Search() {
   const proInputRef = useRef<HTMLInputElement>(null);
   const fatInputRef = useRef<HTMLInputElement>(null);
 
+  const [ searchInputValue , setSearchInputValue ] = useState<string>('');
   const [searchInput , setSearchInput] = useRecoilState<searchInfo>(searchInputState);
   
   const searchBtnClick=():void=>{
@@ -91,6 +92,7 @@ export default function Search() {
           type="text"
           placeholder='Find for food name...'
           onKeyDown={searchBtnEnter}
+          onChange={(e)=>setSearchInputValue(e.target.value)}
         />
         <button
           className={styles.searchBtn}
@@ -99,7 +101,7 @@ export default function Search() {
           >
           <span className="hidden">음식검색버튼</span>
         </button>
-        <SearchAuto />
+        <SearchAuto searchInputValue={searchInputValue}/>
       </div>
     </section>
   )

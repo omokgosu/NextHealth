@@ -6,28 +6,38 @@ import { Food} from '@/types/FoodType';
 import { FoodState } from '@/recoil/atoms';
 import { useRecoilValue } from 'recoil';
 
-export default function SearchAuto() {
+interface searchAutoProps{
+  searchInputValue: string,
+}
+
+export default function SearchAuto({
+  searchInputValue
+}:searchAutoProps) {
 
     const foodData:Food[] = useRecoilValue(FoodState);
 
-    const [filteredFoodTitle, setFilteredFoodTitle] = useState<string[]>(); 
+    const [filteredFoodTitle, setFilteredFoodTitle] = useState<string[]>([]); 
 
-    /* useEffect(() => {
-        console.log(searchInfo);
+    useEffect(() => {
+      if(foodData && searchInputValue !== ''){
         const filteredTitles:string[] = foodData
-          .filter((food) => food.RCP_NM.includes(searchInfo.name))
-          .map((food) => food.RCP_NM);
-        
+        .filter((food) => { if(food.RCP_NM) return food.RCP_NM.includes(searchInputValue) })
+        .map((food) => food.RCP_NM);
+  
         setFilteredFoodTitle(filteredTitles);
-      }, [searchInfo]);
-
-      useEffect(()=>{
-        console.log(filteredFoodTitle);
-      },[filteredFoodTitle]) */
+      }
+    }, [searchInputValue]);
 
   return (
     <ul className={styles.searchAuto}>
-        
+      {
+        filteredFoodTitle.length > 0 &&
+        filteredFoodTitle.map((title, index) => (
+          <li key={index}>
+            <p>{title}</p>
+          </li>
+        ))
+      }
     </ul>
   )
 }
