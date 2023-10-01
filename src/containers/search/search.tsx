@@ -101,7 +101,7 @@ export default function Search() {
           >
           <span className="hidden">음식검색버튼</span>
         </button>
-        <SearchAuto searchInputValue={searchInputValue}/>
+        <SearchAuto searchInputValue={searchInputValue}/> 
       </div>
     </section>
   )
