@@ -52,6 +52,7 @@ export default function Search() {
     }
   };
 
+
   return (
     <section className={styles.search}>
       <h2 className={styles.searchTitle}>어떤 음식을 드시고 싶으세요?</h2>
@@ -101,7 +102,11 @@ export default function Search() {
           >
           <span className="hidden">음식검색버튼</span>
         </button>
-        <SearchAuto searchInputValue={searchInputValue}/> 
+        <SearchAuto 
+          searchInputValue={searchInputValue} 
+          searchBtnClick={searchBtnClick}
+          searchInputRef={searchInputRef}  
+        /> 
       </div>
     </section>
   )
