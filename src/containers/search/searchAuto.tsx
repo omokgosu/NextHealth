@@ -2,10 +2,12 @@
 import React, { useState , useEffect} from 'react'
 import styles from '@/styles/containers/search/searchAuto.module.scss'
 
+// 전역상태관리
 import { Food , searchInfo} from '@/types/FoodType';
 import { FoodState , searchInputState} from '@/recoil/atoms';
 import { useRecoilState , useRecoilValue } from 'recoil';
 
+// props로 받아온 값들의 type
 interface searchAutoProps{
   searchInputValue: string,
   searchBtnClick: ()=>void,
@@ -18,22 +20,26 @@ export default function SearchAuto({
   searchInputRef
 }:searchAutoProps) {
 
-    const [searchInput , setSearchInput] = useRecoilState<searchInfo>(searchInputState);
     const foodData:Food[] = useRecoilValue(FoodState);
 
     const [filteredFoodTitle, setFilteredFoodTitle] = useState<string[]>([]); 
 
+    // Input의 value가 바뀔때마다 실행 될 함수
     useEffect(() => {
       if(foodData && searchInputValue !== ''){
+
+        // RCP_NM 만을 담은 string 배열 생성
         const filteredTitles:string[] = foodData
         .filter((food) => { if(food.RCP_NM) return food.RCP_NM.includes(searchInputValue) })
         .map((food) => food.RCP_NM);
         
+        // 이미 한번 중복을 제거했으나 혹시 몰라 중복 한번 더 제거
         const uniqueFilteredTitles = [...new Set(filteredTitles)];
 
         setFilteredFoodTitle(uniqueFilteredTitles);
       }
 
+      // input의 값이 없으면 빈 배열로 변경
       if(foodData && searchInputValue === ''){
         setFilteredFoodTitle([]);
       }

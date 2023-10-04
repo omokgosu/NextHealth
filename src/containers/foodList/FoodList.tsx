@@ -16,10 +16,12 @@ export default function FoodList() {
     const foodData:Food[] = useRecoilValue(FoodState);
     const searchInfo:searchInfo = useRecoilValue(searchInputState);
 
+    // foodData가 변경될 때 마다, 새로 slice
     useEffect(()=>{
         setFoodList(foodData.slice(0,FoodListCount));
     },[foodData])
 
+    // searchInfo가 바뀔때마다 실행될 유효성 검사
     useEffect(()=>{
         if (searchInfo) {
             const car:string | undefined | number= searchInfo.car;
@@ -38,16 +40,19 @@ export default function FoodList() {
         }
     },[searchInfo])
 
+    // 스크롤이 맨 아래쪽에 닿으면 실행될 함수
     const loadMoreData = ():void=> {
         setFoodListCount((prevCount) => prevCount + 20);
     };
 
+    // window.scroll에 걸릴 이벤트
     useEffect(() => {
         const InfinityScroll = ():void => {
           const scrollY:number = window.scrollY; 
           const windowHeight:number = window.innerHeight; 
           const documentHeight:number = document.documentElement.scrollHeight;
       
+          // 스크롤이 맨 아래에 닿을 경우 loadMoreData 함수 실행행
           if (scrollY + windowHeight >= documentHeight-1) {
             loadMoreData();
           }

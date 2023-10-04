@@ -28,7 +28,10 @@ export default function Home() {
           const data = doc.data();
           const foodItem = Object.assign({}, data) as Food;
           
-          foodList.push(foodItem);
+          // 이미 동일한 RCP_NM이 foodList에 없을 때만 추가
+          if (!foodList.some((item) => item.RCP_NM === foodItem.RCP_NM)) {
+            foodList.push(foodItem);
+          }
         });
 
         setFoodData(foodList);
