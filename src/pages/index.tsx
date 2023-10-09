@@ -2,45 +2,36 @@
 
 import Head from 'next/head'
 import React, {useEffect} from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
+
+//recoil 상태관리
 import { useRecoilState } from 'recoil';
 import { FoodState } from '@/recoil/atoms';
-import { Food } from '@/types/FoodType';
 
-import { db } from '../services/firebase';
-import { collection , getDocs } from 'firebase/firestore';
-
+//컴포넌트 관리
 import FoodList from '../containers/foodList/FoodList';
 import Search from '@/containers/search/search'
 
+// fetchData 함수 가져오기
+import { fetchData } from '@/services/fetchData';
+
 export default function Home() {
   const router = useRouter();
-
-  const [foodData , setFoodData] = useRecoilState(FoodState);
+  
+  const [foodState, setFoodState] = useRecoilState(FoodState);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchAndSetData = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'Food'));
-        const foodList:Food[] = [];
-        
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          const foodItem = Object.assign({}, data) as Food;
-          
-          // 이미 동일한 RCP_NM이 foodList에 없을 때만 추가
-          if (!foodList.some((item) => item.RCP_NM === foodItem.RCP_NM)) {
-            foodList.push(foodItem);
-          }
-        });
-
-        setFoodData(foodList);
+        // 따로 분리해둔 fetchData()
+        const foodList = await fetchData();
+        setFoodState(foodList); // Recoil 상태 업데이트
       } catch (error) {
-        alert('Error fetching data from Firebase:');
+        console.error('Error fetching data:', error);
       }
     };
 
-    fetchData();
+    fetchAndSetData();
   }, []);
 
   return (
